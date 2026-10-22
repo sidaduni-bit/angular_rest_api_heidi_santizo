@@ -1,1 +1,797 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* =========================================
+   VARIABLES DEL TEMA CLARO
+========================================= */
+
+:root {
+  --fondo: #fcfafc;
+  --superficie: #ffffff;
+  --texto: #51435f;
+  --texto-suave: #817889;
+  --borde: #eee5f2;
+  --acento: #a17bb4;
+
+  --fondo-tarjeta: #ffffff;
+  --fondo-imagen: #f7f0ff;
+  --fondo-secundario: #faf7fd;
+  --texto-titulo: #554267;
+  --fondo-dato: #fcf9fd;
+  --borde-dato: #eee6f4;
+
+  --decoracion-rosa: #e98bb8;
+  --decoracion-violeta: #b58be8;
+  --decoracion-hover: #d76ca6;
+}
+
+/* =========================================
+   ESTILOS GENERALES
+========================================= */
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================
+   TEMA CLARO
+========================================= */
+
+html:not(.tema-oscuro) body {
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+html:not(.tema-oscuro) .barra-navegacion {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+html:not(.tema-oscuro) .tarjeta-universo,
+html:not(.tema-oscuro) .tarjeta-personaje {
+  background: #ffffff;
+}
+
+/* =========================================
+   VARIABLES DEL TEMA OSCURO
+========================================= */
+
+html.tema-oscuro {
+  color-scheme: dark;
+
+  --fondo: #17131f;
+  --superficie: #251e30;
+  --texto: #f3eafa;
+  --texto-suave: #c8bbd2;
+  --borde: #40334e;
+  --acento: #d0a7e8;
+
+  --fondo-tarjeta: #251e30;
+  --fondo-imagen: #30263c;
+  --fondo-secundario: #211a2b;
+  --texto-titulo: #f3eafa;
+  --fondo-dato: #30263c;
+  --borde-dato: #493753;
+
+  --decoracion-rosa: #ff91c8;
+  --decoracion-violeta: #cda4ff;
+  --decoracion-hover: #ffc1dc;
+}
+
+/* =========================================
+   TEMA OSCURO: PÁGINA GENERAL
+========================================= */
+
+html.tema-oscuro body {
+  background: var(--fondo) !important;
+  color: var(--texto) !important;
+}
+
+html.tema-oscuro .pagina-inicio,
+html.tema-oscuro .pagina-explorador,
+html.tema-oscuro .pagina-detalle {
+  background: var(--fondo) !important;
+}
+
+/* =========================================
+   TEMA OSCURO: BARRA DE NAVEGACIÓN
+========================================= */
+
+html.tema-oscuro .barra-navegacion {
+  background: rgba(33, 26, 43, 0.97) !important;
+  border-bottom-color: var(--borde) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+
+html.tema-oscuro .marca,
+html.tema-oscuro .marca-nombre,
+html.tema-oscuro .enlace-navegacion {
+  color: var(--texto) !important;
+}
+
+html.tema-oscuro .marca-subtitulo {
+  color: #c0adce !important;
+}
+
+html.tema-oscuro .marca-simbolo {
+  background: linear-gradient(135deg, #382a48, #302b49) !important;
+  color: #e7c8ff !important;
+}
+
+html.tema-oscuro .enlace-navegacion:hover,
+html.tema-oscuro .enlace-navegacion.enlace-activo {
+  background: #40304f !important;
+  color: #e7c8ff !important;
+}
+
+html.tema-oscuro .boton-tema {
+  color: #f5d58b !important;
+}
+
+/* =========================================
+   TEMA OSCURO: INICIO
+========================================= */
+
+html.tema-oscuro .bienvenida,
+html.tema-oscuro .encabezado-explorador {
+  background: linear-gradient(
+    135deg,
+    #30243f,
+    #382536,
+    #202c3e
+  ) !important;
+
+  border-color: #493753 !important;
+}
+
+html.tema-oscuro .etiqueta-bienvenida {
+  background: rgba(45, 35, 57, 0.9) !important;
+  border-color: #514061 !important;
+  color: #e0c5f1 !important;
+}
+
+html.tema-oscuro .bienvenida h1,
+html.tema-oscuro .encabezado-explorador h1 {
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .bienvenida h1 span {
+  color: #e3a9ce !important;
+}
+
+html.tema-oscuro .texto-bienvenida,
+html.tema-oscuro .encabezado-explorador p {
+  color: #d2c5dc !important;
+}
+
+html.tema-oscuro .boton-explorar {
+  color: #ffffff !important;
+  background: linear-gradient(110deg, #82639e, #a9688c) !important;
+}
+
+html.tema-oscuro .decoracion-uno,
+html.tema-oscuro .decoracion-dos {
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+
+/* =========================================
+   TEMA OSCURO: TÍTULOS Y SECCIONES
+========================================= */
+
+html.tema-oscuro .titulo-seccion h2,
+html.tema-oscuro .seccion-final h2,
+html.tema-oscuro .contenido-universo h3 {
+  color: var(--texto-titulo) !important;
+}
+
+html.tema-oscuro .titulo-seccion p,
+html.tema-oscuro .contenido-universo p,
+html.tema-oscuro .seccion-final p {
+  color: var(--texto-suave) !important;
+}
+
+html.tema-oscuro .pequeno-titulo,
+html.tema-oscuro .etiqueta-seccion {
+  color: #d3a9e6 !important;
+}
+
+html.tema-oscuro .seccion-final {
+  background: var(--fondo-secundario) !important;
+  border-color: var(--borde) !important;
+}
+
+html.tema-oscuro .adorno-final {
+  color: #d3a9e6 !important;
+}
+
+/* =========================================
+   TARJETAS DE UNIVERSOS
+========================================= */
+
+.tarjeta-universo {
+  position: relative;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tarjeta-universo:hover {
+  transform: translateY(-5px);
+  border-color: var(--decoracion-violeta);
+  box-shadow: 0 12px 30px rgb(181 139 232 / 15%);
+}
+
+/* =========================================
+   DECORACIONES DE LAS TARJETAS
+   CLARO: FLORES
+   OSCURO: CORAZONES
+========================================= */
+
+/*
+  El elemento .estrella ya existe en tu diseño.
+  Ocultamos el símbolo original y ponemos una
+  decoración que cambia automáticamente con el tema.
+*/
+
+.estrella {
+  font-size: 0 !important;
+  color: var(--decoracion-rosa) !important;
+}
+
+.estrella::before {
+  content: '🌸';
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Flores en las tarjetas del tema claro */
+
+html:not(.tema-oscuro) .tarjeta-universo .estrella {
+  color: var(--decoracion-rosa) !important;
+}
+
+html:not(.tema-oscuro) .tarjeta-universo .estrella::before {
+  content: '🌸';
+}
+
+/* Corazones en las tarjetas del tema oscuro */
+
+html.tema-oscuro .tarjeta-universo .estrella::before {
+  content: '♥';
+  color: #ff91c8;
+  font-size: 25px;
+}
+
+/* Animación de las decoraciones */
+
+.tarjeta-universo:hover .estrella::before {
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* =========================================
+   TEMA OSCURO: TARJETAS DE UNIVERSOS
+========================================= */
+
+html.tema-oscuro .tarjeta-universo {
+  background: var(--fondo-tarjeta) !important;
+  border-color: var(--borde) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16) !important;
+}
+
+html.tema-oscuro .tarjeta-universo:hover {
+  border-color: #cda4ff !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26) !important;
+}
+
+html.tema-oscuro .digimon .ilustracion-universo,
+html.tema-oscuro .dragon-ball .ilustracion-universo,
+html.tema-oscuro .pokemon .ilustracion-universo,
+html.tema-oscuro .demon-slayer .ilustracion-universo {
+  background: linear-gradient(
+    135deg,
+    #342841,
+    #292439
+  ) !important;
+}
+
+html.tema-oscuro .numero-universo {
+  color: #c6a6da !important;
+}
+
+html.tema-oscuro .enlace-universo {
+  color: #d3a9e6 !important;
+}
+
+html.tema-oscuro .enlace-universo:hover {
+  color: #f0b9dc !important;
+}
+
+/* =========================================
+   ENLACE EXPLORAR COLECCIÓN
+========================================= */
+
+.enlace-universo {
+  color: var(--decoracion-violeta);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.enlace-universo:hover {
+  color: var(--decoracion-hover);
+}
+
+/*
+  Cambia la flecha final por una flor o un corazón.
+  No necesita cambiar el HTML si el enlace termina
+  con una flecha escrita directamente en el contenido.
+*/
+
+html:not(.tema-oscuro) .enlace-universo {
+  color: #b184d8;
+}
+
+html.tema-oscuro .enlace-universo {
+  color: #d3a9e6 !important;
+}
+
+/* =========================================
+   ICONO JUNTO A EXPLORAR COLECCIÓN
+========================================= */
+
+/*
+  Para utilizar esta decoración, el HTML debe incluir:
+  <span class="icono-explorar" aria-hidden="true"></span>
+*/
+
+.icono-explorar::after {
+  content: '🌸';
+  display: inline-block;
+  margin-left: 8px;
+  color: #e98bb8;
+  font-size: 17px;
+  transition: transform 0.2s ease;
+}
+
+html.tema-oscuro .icono-explorar::after {
+  content: '♥';
+  color: #ff91c8;
+  font-size: 21px;
+}
+
+.tarjeta-universo:hover .icono-explorar::after {
+  transform: scale(1.2);
+}
+
+/* =========================================
+   TEMA OSCURO: EXPLORADOR DE PERSONAJES
+========================================= */
+
+html.tema-oscuro .informacion-resultados {
+  color: var(--texto-suave) !important;
+}
+
+html.tema-oscuro .contador-personajes {
+  background: #30243e !important;
+  border-color: #493753 !important;
+  color: #e0c5f1 !important;
+}
+
+html.tema-oscuro .punto-decorativo {
+  background: #d3a9e6 !important;
+}
+
+/* =========================================
+   TARJETAS DE PERSONAJES
+========================================= */
+
+.tarjeta-personaje {
+  position: relative;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tarjeta-personaje:hover {
+  transform: translateY(-4px);
+  border-color: var(--decoracion-violeta);
+  box-shadow: 0 10px 25px rgb(181 139 232 / 15%);
+}
+
+/* Botón de detalles */
+
+.boton-detalles {
+  color: var(--decoracion-violeta);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.boton-detalles:hover {
+  color: var(--decoracion-hover);
+}
+
+/* =========================================
+   TEMA OSCURO: TARJETAS DE PERSONAJES
+========================================= */
+
+html.tema-oscuro .tarjeta-personaje {
+  background: var(--fondo-tarjeta) !important;
+  border-color: var(--borde) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+html.tema-oscuro .tarjeta-personaje:hover {
+  border-color: #cda4ff !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32) !important;
+}
+
+html.tema-oscuro .contenedor-imagen {
+  background: linear-gradient(
+    135deg,
+    #342841,
+    #292439
+  ) !important;
+}
+
+html.tema-oscuro .nombre-personaje {
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .identificador-personaje {
+  background: #382a48 !important;
+  border-color: #514061 !important;
+  color: #e0c5f1 !important;
+}
+
+html.tema-oscuro .descripcion-personaje {
+  color: #c8bbd2 !important;
+}
+
+html.tema-oscuro .etiqueta-universo {
+  background: rgba(42, 32, 54, 0.95) !important;
+  border-color: #514061 !important;
+  color: #e0c5f1 !important;
+}
+
+html.tema-oscuro .simbolo-ampliar {
+  background: #382a48 !important;
+  border-color: #514061 !important;
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .boton-detalles {
+  background: linear-gradient(110deg, #82639e, #a9688c) !important;
+  color: #ffffff !important;
+}
+
+/* =========================================
+   PAGINACIÓN ANGULAR MATERIAL
+   CLARO: FLORES
+   OSCURO: CORAZONES ROSADOS
+========================================= */
+
+/* Preparar los botones de anterior y siguiente */
+
+.paginador-personajes .mat-mdc-paginator-navigation-previous,
+.paginador-personajes .mat-mdc-paginator-navigation-next {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ocultar los iconos de flecha originales */
+
+.paginador-personajes
+.mat-mdc-paginator-navigation-previous
+.mat-mdc-paginator-icon,
+.paginador-personajes
+.mat-mdc-paginator-navigation-next
+.mat-mdc-paginator-icon {
+  display: none !important;
+}
+
+/* Tema claro: flores */
+
+html:not(.tema-oscuro)
+.paginador-personajes
+.mat-mdc-paginator-navigation-previous::after,
+html:not(.tema-oscuro)
+.paginador-personajes
+.mat-mdc-paginator-navigation-next::after {
+  content: '🌸';
+  display: block;
+  font-size: 19px;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Tema oscuro: corazones */
+
+html.tema-oscuro
+.paginador-personajes
+.mat-mdc-paginator-navigation-previous::after,
+html.tema-oscuro
+.paginador-personajes
+.mat-mdc-paginator-navigation-next::after {
+  content: '♥';
+  display: block;
+  color: #ff91c8;
+  font-size: 24px;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Efecto al pasar el cursor */
+
+.paginador-personajes
+.mat-mdc-paginator-navigation-previous:hover::after,
+.paginador-personajes
+.mat-mdc-paginator-navigation-next:hover::after {
+  transform: scale(1.2);
+}
+
+html.tema-oscuro
+.paginador-personajes
+.mat-mdc-paginator-navigation-previous:hover::after,
+html.tema-oscuro
+.paginador-personajes
+.mat-mdc-paginator-navigation-next:hover::after {
+  color: #ffc1dc;
+}
+
+/* Flores y corazones deshabilitados */
+
+.paginador-personajes
+.mat-mdc-paginator-navigation-previous.mat-mdc-button-disabled::after,
+.paginador-personajes
+.mat-mdc-paginator-navigation-next.mat-mdc-button-disabled::after {
+  opacity: 0.45;
+}
+
+/* =========================================
+   TEMA OSCURO: PAGINACIÓN ANGULAR MATERIAL
+========================================= */
+
+html.tema-oscuro .paginador-personajes,
+html.tema-oscuro .mat-mdc-paginator {
+  background: var(--superficie) !important;
+  border-color: var(--borde) !important;
+  color: var(--texto) !important;
+}
+
+html.tema-oscuro .mat-mdc-paginator,
+html.tema-oscuro .mat-mdc-paginator .mat-mdc-select-value,
+html.tema-oscuro .mat-mdc-paginator .mat-mdc-paginator-range-label,
+html.tema-oscuro .mat-mdc-paginator .mat-mdc-icon-button,
+html.tema-oscuro .mat-mdc-paginator .mat-mdc-select-arrow {
+  color: var(--texto) !important;
+}
+
+html.tema-oscuro .mat-mdc-paginator .mat-mdc-select-trigger {
+  color: var(--texto) !important;
+}
+
+html.tema-oscuro .mat-mdc-paginator .mat-mdc-button-disabled {
+  color: #766b80 !important;
+}
+
+/* =========================================
+   TEMA OSCURO: DETALLES DEL PERSONAJE
+========================================= */
+
+html.tema-oscuro .tarjeta-detalle {
+  background: var(--superficie) !important;
+  border-color: var(--borde) !important;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2) !important;
+}
+
+html.tema-oscuro .detalle-imagen {
+  background: linear-gradient(
+    135deg,
+    #342841,
+    #292439
+  ) !important;
+}
+
+html.tema-oscuro .etiqueta-detalle {
+  background: rgba(42, 32, 54, 0.95) !important;
+  border-color: #514061 !important;
+  color: #e0c5f1 !important;
+}
+
+html.tema-oscuro .indicacion-imagen {
+  color: #c8bbd2 !important;
+}
+
+html.tema-oscuro .detalle-contenido h1,
+html.tema-oscuro .detalle-contenido h2 {
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .descripcion-detalle {
+  color: #c8bbd2 !important;
+}
+
+html.tema-oscuro .dato-personaje {
+  background: var(--fondo-dato) !important;
+  border-color: var(--borde-dato) !important;
+}
+
+html.tema-oscuro .dato-etiqueta {
+  color: #c8b5d8 !important;
+}
+
+html.tema-oscuro .dato-valor {
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .boton-regresar {
+  background: linear-gradient(135deg, #382a48, #453047) !important;
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .enlace-regreso {
+  color: #d3a9e6 !important;
+}
+
+/* =========================================
+   TEMA OSCURO: CARGA Y MENSAJES DE ERROR
+========================================= */
+
+html.tema-oscuro .estado-carga,
+html.tema-oscuro .mensaje-error,
+html.tema-oscuro .estado-vacio {
+  background: var(--superficie) !important;
+  border-color: var(--borde) !important;
+  color: var(--texto) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+html.tema-oscuro .estado-carga h2,
+html.tema-oscuro .mensaje-error h2,
+html.tema-oscuro .estado-vacio h2 {
+  color: var(--texto) !important;
+}
+
+html.tema-oscuro .estado-carga p,
+html.tema-oscuro .mensaje-error p,
+html.tema-oscuro .estado-vacio p {
+  color: var(--texto-suave) !important;
+}
+
+html.tema-oscuro .simbolo-error {
+  color: #e3a9ce !important;
+}
+
+/* =========================================
+   TEMA OSCURO: VENTANA DE IMAGEN AMPLIADA
+========================================= */
+
+html.tema-oscuro .contenido-modal-imagen {
+  background: #251e30 !important;
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .encabezado-modal h2 {
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .subtitulo-modal {
+  color: #d3a9e6 !important;
+}
+
+html.tema-oscuro .boton-cerrar-modal {
+  color: #f3eafa !important;
+}
+
+html.tema-oscuro .marco-imagen-ampliada {
+  background: #30263c !important;
+  border-color: #493753 !important;
+}
+
+html.tema-oscuro .pie-modal p {
+  color: #c8bbd2 !important;
+}
+
+html.tema-oscuro .pie-modal button {
+  background: #40304f !important;
+  color: #f3eafa !important;
+}
+
+/* =========================================
+   TEMA OSCURO: ANGULAR MATERIAL
+========================================= */
+
+html.tema-oscuro .mat-mdc-card {
+  color: var(--texto);
+}
+
+html.tema-oscuro .mat-mdc-dialog-container {
+  --mdc-dialog-container-color: #251e30;
+  --mdc-dialog-subhead-color: #f3eafa;
+  --mdc-dialog-supporting-text-color: #c8bbd2;
+}
+
+html.tema-oscuro .mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #30243e;
+  --mdc-snackbar-supporting-text-color: #f3eafa;
+}
+
+/* =========================================
+   TRANSICIONES Y ACCESIBILIDAD
+========================================= */
+
+.tarjeta-universo,
+.tarjeta-personaje,
+.tarjeta-detalle,
+.seccion-final,
+.barra-navegacion {
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #b99bd8;
+  outline-offset: 3px;
+}
+
+/* Reducir animaciones si el usuario lo solicita */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   FIN DE LOS ESTILOS GLOBALES
+========================================= */
+
