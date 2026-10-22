@@ -1,0 +1,70 @@
+<mat-toolbar class="barra-navegacion">
+
+  <div class="contenido-navegacion">
+
+    <a
+      class="marca"
+      routerLink="/"
+      aria-label="Ir al inicio"
+    >
+      <span class="marca-simbolo">✞</span>
+
+      <span class="marca-texto">
+
+        <span class="marca-nombre">
+          Biela Santizo
+        </span>
+
+        <span class="marca-subtitulo">
+          UNIVERSOS FANTÁSTICOS
+        </span>
+
+      </span>
+    </a>
+
+    <nav
+      class="menu-navegacion"
+      aria-label="Navegación principal"
+    >
+
+      <a
+        mat-button
+        class="enlace-navegacion"
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="enlace-activo"
+      >
+        Inicio
+      </a>
+
+      @for (universo of universos; track universo.ruta) {
+
+        <a
+          mat-button
+          class="enlace-navegacion"
+          [routerLink]="universo.ruta"
+          routerLinkActive="enlace-activo"
+        >
+          {{ universo.nombre }}
+        </a>
+
+      }
+
+      <button
+        mat-icon-button
+        class="boton-tema"
+        type="button"
+        (click)="tema.cambiarTema()"
+        [attr.aria-label]="tema.oscuro() ? 'Activar tema claro' : 'Activar tema oscuro'"
+        [title]="tema.oscuro() ? 'Tema claro' : 'Tema oscuro'"
+      >
+        <mat-icon>
+          {{ tema.oscuro() ? 'light_mode' : 'dark_mode' }}
+        </mat-icon>
+      </button>
+
+    </nav>
+
+  </div>
+
+</mat-toolbar>
