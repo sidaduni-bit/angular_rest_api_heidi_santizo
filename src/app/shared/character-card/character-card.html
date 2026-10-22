@@ -1,0 +1,74 @@
+
+<mat-card
+  class="tarjeta-personaje"
+  (click)="abrirDetalles()"
+  (keydown.enter)="abrirDetalles()"
+  tabindex="0"
+  role="button"
+  [attr.aria-label]="'Ver detalles de ' + personaje().name">
+
+  <!-- Imagen del personaje -->
+  <div class="contenedor-imagen">
+
+    <button
+      type="button"
+      class="boton-ampliar-imagen"
+      (click)="ampliarImagen($event)"
+      (keydown.enter)="$event.stopPropagation()"
+      [attr.aria-label]="'Ampliar imagen de ' + personaje().name"
+      title="Ampliar imagen">
+
+      <img
+        [src]="personaje().image || imagenAlternativa"
+        [alt]="'Imagen de ' + personaje().name"
+        class="imagen-personaje"
+        loading="lazy">
+
+      <span class="simbolo-ampliar" aria-hidden="true">⌕</span>
+
+    </button>
+
+    <!-- Universo del personaje -->
+    <span class="etiqueta-universo">
+      {{ nombreUniverso(personaje().universe) }}
+    </span>
+
+  </div>
+
+  <!-- Información del personaje -->
+  <div class="contenido-tarjeta">
+
+    <span class="identificador-personaje">
+      ID: {{ personaje().id }}
+    </span>
+
+    <h2 class="nombre-personaje">
+      {{ personaje().name }}
+    </h2>
+
+    @if (personaje().description) {
+      <p class="descripcion-personaje">
+        {{ personaje().description }}
+      </p>
+    } @else {
+      <p class="descripcion-personaje">
+        No hay una descripción disponible para este personaje.
+      </p>
+    }
+
+    <!-- Botón para consultar los detalles -->
+    <button
+      type="button"
+      class="boton-detalles"
+      (click)="abrirDetallesDesdeBoton($event)"
+      [attr.aria-label]="'Ver detalles de ' + personaje().name">
+
+      Ver detalles
+      <span aria-hidden="true">→</span>
+
+    </button>
+
+  </div>
+
+</mat-card>
+
