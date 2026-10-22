@@ -1,0 +1,74 @@
+<main class="pagina-explorador">
+
+  <section class="encabezado-explorador">
+    <span class="subtitulo">TU UNIVERSO FAVORITO</span>
+
+    <h1>{{ nombreUniverso }}</h1>
+
+    <p>
+      Descubre personajes increíbles, conoce sus historias
+      y encuentra a tus favoritos.
+    </p>
+  </section>
+
+  <section class="contenido-explorador">
+
+    @if (cargando) {
+      <div class="estado-carga" role="status">
+        <mat-spinner diameter="46"></mat-spinner>
+        <h2>Preparando tu universo...</h2>
+        <p>Estamos buscando a los personajes para ti.</p>
+      </div>
+    }
+
+    @if (error && !cargando) {
+      <div class="mensaje-error" role="alert">
+        <h2>¡Ups! Algo salió mal</h2>
+        <p>{{ error }}</p>
+
+        <button
+          mat-flat-button
+          type="button"
+          (click)="reintentar()"
+        >
+          Intentar nuevamente
+        </button>
+      </div>
+    }
+
+    @if (!cargando && !error && personajes.length > 0) {
+
+      <div class="informacion-resultados">
+        <div>
+          <span class="punto-decorativo"></span>
+          <span>Personajes encontrados</span>
+        </div>
+
+        <span class="contador-personajes">
+          {{ personajes.length }} personajes en esta página
+        </span>
+      </div>
+
+      <div class="rejilla-personajes">
+        @for (personaje of personajes; track personaje.id) {
+          <app-character-card
+            [personaje]="personaje"
+            (verDetalles)="verDetalles($event)"
+          />
+        }
+      </div>
+
+      <mat-paginator
+        class="paginador-personajes"
+        [length]="totalPaginador"
+        [pageIndex]="pagina - 1"
+        [pageSize]="tamanoPagina"
+        [pageSizeOptions]="[20]"
+        [showFirstLastButtons]="false"
+        (page)="cambiarPagina($event)"
+        aria-label="Paginación de Dragon Ball Z"
+      />
+    }
+
+  </section>
+</main>
