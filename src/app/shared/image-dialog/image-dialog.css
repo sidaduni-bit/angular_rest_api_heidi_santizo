@@ -1,0 +1,103 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contenido-modal-imagen {
+  overflow: hidden;
+  padding: 24px;
+  color: #655473;
+  background: #fff;
+  border-radius: 24px;
+}
+
+.encabezado-modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.subtitulo-modal {
+  color: #b184b5;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.encabezado-modal h2 {
+  margin: 8px 0 0;
+  color: #554267;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  overflow-wrap: anywhere;
+}
+
+.boton-cerrar-modal {
+  flex-shrink: 0;
+  color: #8b719f;
+}
+
+.marco-imagen-ampliada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  max-height: 65vh;
+  padding: 18px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f6eefa, #fff0f6, #edf7ff);
+  border: 1px solid #eee5f2;
+  border-radius: 20px;
+}
+
+.imagen-modal {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.pie-modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.pie-modal > span {
+  color: #c79ac5;
+  font-size: 1.5rem;
+}
+
+.pie-modal p {
+  flex: 1;
+  margin: 0;
+  color: #817889;
+  font-size: .85rem;
+}
+
+.pie-modal button {
+  border-radius: 12px;
+  background: #eee5f7;
+  color: #695375;
+}
+
+@media (max-width: 480px) {
+  .contenido-modal-imagen {
+    padding: 16px;
+  }
+
+  .marco-imagen-ampliada {
+    min-height: 180px;
+    padding: 10px;
+  }
+
+  .pie-modal {
+    flex-wrap: wrap;
+  }
+}

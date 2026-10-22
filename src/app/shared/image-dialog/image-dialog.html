@@ -1,0 +1,55 @@
+<section class="contenido-modal-imagen">
+
+  <header class="encabezado-modal">
+
+    <div>
+
+      <span class="subtitulo-modal">
+        GALERÍA DE PERSONAJES
+      </span>
+
+      <h2>{{ conejito.nombre }}</h2>
+
+    </div>
+
+    <button
+      mat-icon-button
+      type="button"
+      class="boton-cerrar-modal"
+      aria-label="Cerrar imagen ampliada"
+      (click)="cerrar()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </header>
+
+  <div class="marco-imagen-ampliada">
+
+    <img
+      [src]="conejito.imagen"
+      [alt]="'Imagen ampliada de ' + conejito.nombre"
+      class="imagen-modal"
+    />
+
+  </div>
+
+  <footer class="pie-modal">
+
+    <span>✿</span>
+
+    <p>
+      Imagen de {{ conejito.nombre }}
+    </p>
+
+    <button
+      mat-flat-button
+      type="button"
+      (click)="cerrar()"
+    >
+      Cerrar
+    </button>
+
+  </footer>
+
+</section>

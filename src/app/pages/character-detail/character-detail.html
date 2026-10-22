@@ -1,0 +1,179 @@
+<main class="pagina-detalle">
+
+  <div class="contenedor-detalle">
+
+    <a
+      class="enlace-regreso"
+      [routerLink]="['/explorer', universo]"
+    >
+      <span aria-hidden="true">←</span>
+      Regresar a {{ nombreUniverso }}
+    </a>
+
+    @if (cargando) {
+
+      <section class="estado-carga" role="status">
+
+        <mat-spinner diameter="46"></mat-spinner>
+
+        <h2>Preparando tu descubrimiento...</h2>
+
+        <p>
+          Estamos buscando la información del personaje.
+        </p>
+
+      </section>
+
+    }
+
+    @if (!cargando && error) {
+
+      <section class="mensaje-error" role="alert">
+
+        <span class="simbolo-error">♡</span>
+
+        <h2>No encontramos al personaje</h2>
+
+        <p>{{ error }}</p>
+
+        <button
+          mat-flat-button
+          type="button"
+          (click)="volverAlExplorador()"
+        >
+          Volver al explorador
+        </button>
+
+      </section>
+
+    }
+
+    @if (!cargando && personaje) {
+
+      <article class="tarjeta-detalle">
+
+        <div class="detalle-imagen">
+
+          @if (personaje.image) {
+
+            <button
+              type="button"
+              class="boton-imagen-detalle"
+              (click)="ampliarImagen()"
+              [attr.aria-label]="'Ampliar imagen de ' + personaje.name"
+            >
+
+              <img
+                [src]="personaje.image"
+                [alt]="'Imagen de ' + personaje.name"
+                class="imagen-ampliada"
+              />
+
+            </button>
+
+          } @else {
+
+            <div class="imagen-no-disponible">
+              <span>✿</span>
+              <p>Imagen no disponible</p>
+            </div>
+
+          }
+
+          <span class="etiqueta-detalle">
+            {{ nombreUniverso }}
+          </span>
+
+          @if (personaje.image) {
+
+            <p class="indicacion-imagen">
+              Haz clic en la imagen para ampliarla
+            </p>
+
+          }
+
+        </div>
+
+        <div class="detalle-contenido">
+
+          <span class="etiqueta-seccion">
+            FICHA DEL PERSONAJE
+          </span>
+
+          <h1>{{ personaje.name }}</h1>
+
+          <div class="separador-decorativo">
+            <span></span>
+            ✿
+            <span></span>
+          </div>
+
+          <h2>Sobre el personaje</h2>
+
+          <p class="descripcion-detalle">
+            {{ personaje.description || 'No hay una descripción disponible para este personaje.' }}
+          </p>
+
+          <div class="informacion-personaje">
+
+            <div class="dato-personaje">
+
+              <span class="dato-etiqueta">
+                Universo
+              </span>
+
+              <span class="dato-valor">
+                {{ nombreUniverso }}
+              </span>
+
+            </div>
+
+            <div class="dato-personaje">
+
+              <span class="dato-etiqueta">
+                Identificador
+              </span>
+
+              <span class="dato-valor">
+                {{ personaje.id }}
+              </span>
+
+            </div>
+
+            @for (dato of datosDetalle; track dato.nombre) {
+
+              <div class="dato-personaje">
+
+                <span class="dato-etiqueta">
+                  {{ dato.nombre }}
+                </span>
+
+                <span class="dato-valor">
+                  {{ dato.valor }}
+                </span>
+
+              </div>
+
+            }
+
+          </div>
+
+          <button
+            mat-flat-button
+            type="button"
+            class="boton-regresar"
+            (click)="volverAlExplorador()"
+          >
+            <mat-icon>arrow_back</mat-icon>
+            Volver a la colección
+          </button>
+
+        </div>
+
+      </article>
+
+    }
+
+  </div>
+
+</main>
