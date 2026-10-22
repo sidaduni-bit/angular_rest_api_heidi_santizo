@@ -1,0 +1,121 @@
+<main class="pagina-inicio">
+
+  <section class="bienvenida">
+
+    <span class="etiqueta-bienvenida">
+      🌸 TU COLECCIÓN DE UNIVERSOS 🌸
+    </span>
+
+    <h1>
+      Explora tus universos
+      <span>favoritos</span>
+    </h1>
+
+    <p class="texto-bienvenida">
+      Un espacio para descubrir personajes increíbles,
+      conocer sus historias y encontrar a tus favoritos.
+    </p>
+
+    <a
+      class="boton-explorar"
+      routerLink="/explorer/digimon"
+    >
+      Comenzar a explorar
+      <span class="icono-boton" aria-hidden="true"></span>
+    </a>
+
+    <div class="decoracion decoracion-uno"></div>
+    <div class="decoracion decoracion-dos"></div>
+
+  </section>
+
+  <section class="seccion-universos">
+
+    <div class="titulo-seccion">
+
+      <span class="pequeno-titulo">
+        UN MUNDO POR DESCUBRIR
+      </span>
+
+      <h2>Elige tu universo</h2>
+
+      <p>
+        Selecciona una colección para comenzar tu aventura.
+      </p>
+
+    </div>
+
+    <div class="rejilla-universos">
+
+      @for (universo of universos; track universo.nombre) {
+
+        <mat-card
+          class="tarjeta-universo"
+          [ngClass]="universo.clase"
+        >
+
+          <div class="ilustracion-universo">
+
+            <img
+              class="imagen-universo"
+              [src]="universo.imagen"
+              [alt]="'Imagen decorativa de ' + universo.nombre"
+            />
+
+            <span
+              class="estrella estrella-uno"
+              aria-hidden="true"
+            ></span>
+
+            <span
+              class="estrella estrella-dos"
+              aria-hidden="true"
+            ></span>
+
+          </div>
+
+          <div class="contenido-universo">
+
+            <span class="numero-universo">
+              COLECCIÓN EXCLUSIVA
+            </span>
+
+            <h3>{{ universo.nombre }}</h3>
+
+            <p>{{ universo.descripcion }}</p>
+
+            <a
+              class="enlace-universo"
+              [routerLink]="universo.ruta"
+            >
+              Explorar colección
+
+              <span
+                class="icono-explorar"
+                aria-hidden="true"
+              ></span>
+            </a>
+
+          </div>
+
+        </mat-card>
+
+      }
+
+    </div>
+
+  </section>
+
+  <section class="seccion-final">
+
+    <div class="adorno-final" aria-hidden="true"></div>
+
+    <h2>Tu próxima aventura comienza aquí</h2>
+
+    <p>
+      Explora, descubre y conoce cada personaje a tu manera.
+    </p>
+
+  </section>
+
+</main>
